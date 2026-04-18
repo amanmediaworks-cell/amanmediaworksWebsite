@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import './globals.css'
 
 export const metadata = {
@@ -30,10 +32,43 @@ function Navbar() {
       backdropFilter: 'blur(12px)',
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
     }}>
-      <a href="/" style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
-        <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '20px', fontWeight: 600, color: '#C9A84C', letterSpacing: '0.06em' }}>AmanMedia</span>
-        <span style={{ fontSize: '10px', letterSpacing: '0.3em', color: '#666', fontWeight: 400 }}>WORKS</span>
-      </a>
+<Link href="/" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+  
+  {/* LOGO */}
+  <Image 
+    src="/logo.png" 
+    alt="logo" 
+    width={60} 
+    height={45} 
+    style={{
+      borderRadius: "50%",
+      objectFit: "cover"
+    }}
+  />
+
+  {/* TEXT */}
+  <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
+    
+    <span style={{ 
+      fontFamily: "Cormorant Garamond, serif",
+      fontSize: "22px",
+      fontWeight: "600",
+      color: "#C9A84C"
+    }}>
+      AmanMedia
+    </span>
+
+    <span style={{ 
+      fontSize: "10px",
+      letterSpacing: "0.35em",
+      color: "#aaa"
+    }}>
+      WORKS
+    </span>
+
+  </div>
+
+</Link>
       <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
         {[['/', 'Home'], ['/about', 'About'], ['/services', 'Services'], ['/blog', 'Blog'], ['/contact', 'Contact']].map(([href, label]) => (
           <a key={href} href={href} style={{ fontSize: '12px', letterSpacing: '0.12em', color: '#C8C8C0', fontWeight: 400 }}>
